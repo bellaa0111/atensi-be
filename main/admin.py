@@ -1,5 +1,5 @@
 from django.contrib import admin
-import pygsheets
+import gspread
 from main.models import *
 import os
 # Register your models here.
@@ -16,10 +16,10 @@ class UserAdmin(admin.ModelAdmin) :
     
     def delete_model(self, request, obj):
         sheet = OpenSheet.objects.all()
-        sheet_authorization = pygsheets.authorize(service_file=os.getcwd()+'/bem_psiko_be/evaluation-program-353906-df7e66980a6f.json')
+        sheet_authorization = gspread.service_account(filename=os.getcwd()+'/bem_psiko_be/evaluation-program-353906-df7e66980a6f.json')
         try :
             open_sheet = sheet_authorization.open(sheet[0].name)
-            deleted_worksheet = open_sheet.worksheet_by_title(obj.name)
+            deleted_worksheet = open_sheet.worksheet(obj.name)
             open_sheet.del_worksheet(deleted_worksheet)
         except :
             pass
@@ -27,11 +27,11 @@ class UserAdmin(admin.ModelAdmin) :
     
     def delete_queryset(self, request, queryset) :
         sheet = OpenSheet.objects.all()
-        sheet_authorization = pygsheets.authorize(service_file=os.getcwd()+'/bem_psiko_be/evaluation-program-353906-df7e66980a6f.json')
+        sheet_authorization = gspread.service_account(filename=os.getcwd()+'/bem_psiko_be/evaluation-program-353906-df7e66980a6f.json')
         try :
             open_sheet = sheet_authorization.open(sheet[0].name)
             for i in queryset :
-                deleted_worksheet = open_sheet.worksheet_by_title(i.name)
+                deleted_worksheet = open_sheet.worksheet(i.name)
                 open_sheet.del_worksheet(deleted_worksheet)
         except :
             pass
