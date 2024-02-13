@@ -65,7 +65,8 @@ CORS_ORIGIN_WHITELIST = (
   'https://main--spiffy-salamander-35eaa3.netlify.app',
   'https://appraisalpsikologiui.netlify.app',
   'http://103.55.38.68',
-  'https://evaluasibempsikoui.my.id'
+  'https://evaluasibempsikoui.my.id',
+  'https://atensi-fe.vercel.app/'
 )
 
 ROOT_URLCONF = 'bem_psiko_be.urls'
