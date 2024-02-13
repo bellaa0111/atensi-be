@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from distutils.command.config import config
 from email.policy import default
 import os
-import dj_database_url
-import django_heroku
 from dotenv import load_dotenv
 from pathlib import Path
 
