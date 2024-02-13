@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "bem_psiko_be/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "bem_psiko_be/wsgi.py"
+      }
+    ]
+}
