@@ -2,7 +2,7 @@
     "builds": [
       {
         "src": "bem_psiko_be/wsgi.py",
-        "use": "@vercel/python"
+        "use": "@ardnt/vercel-python-wsgi"
       }
     ],
     "routes": [
